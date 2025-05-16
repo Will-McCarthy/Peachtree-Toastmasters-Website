@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "cd client && vite build",
+  "buildCommand": "cd client  && npm run build",
   "outputDirectory": "client/dist",
   "routes": [
     { "src": "/api/(.*)", "dest": "/server/index.ts" },
