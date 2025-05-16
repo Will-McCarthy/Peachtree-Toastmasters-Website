@@ -19,7 +19,7 @@ export class MemStorage implements IStorage {
     this.config = {
       id: 1,
       googleSheetsUrl: "https://docs.google.com/spreadsheets/d/1MksyZTH5gKr7v0s6RAak8jpK58CmnkHxyCYK9qU1V_A/edit?gid=0#gid=0",
-      adminPassword: process.env.ADMIN_PASSWORD || "peachtree123"
+      adminPassword: process.env.ADMIN_PASSWORD || "ptmleaders2025"
     };
     
     this.contactMessages = new Map();
