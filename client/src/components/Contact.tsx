@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { apiRequest } from "@/lib/queryClient";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -22,6 +20,7 @@ type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export default function Contact() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -33,31 +32,45 @@ export default function Contact() {
     }
   });
   
-  const mutation = useMutation({
-    mutationFn: async (data: ContactFormValues) => {
-      const response = await apiRequest('POST', '/api/contact', data);
-      return response.json();
-    },
-    onSuccess: () => {
-      toast({
-        title: "Message Sent!",
-        description: "Thank you for your message. We'll get back to you soon.",
-        duration: 5000
+  async function onSubmit(data: ContactFormValues) {
+    setIsSubmitting(true);
+    
+    // Using Formspree to handle the form submission
+    try {
+      const response = await fetch("https://formspree.io/f/xgegdyla", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          subject: data.subject,
+          message: data.message,
+          _replyto: data.email
+        })
       });
-      form.reset();
-    },
-    onError: (error) => {
+      
+      if (response.ok) {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for your message. We'll get back to you soon.",
+          duration: 5000
+        });
+        form.reset();
+      } else {
+        throw new Error("Failed to send message");
+      }
+    } catch (error) {
       toast({
         title: "Error",
-        description: error.message || "Failed to send message. Please try again later.",
+        description: "Failed to send message. Please try again later.",
         variant: "destructive",
         duration: 5000
       });
+    } finally {
+      setIsSubmitting(false);
     }
-  });
-  
-  function onSubmit(data: ContactFormValues) {
-    mutation.mutate(data);
   }
 
   return (
@@ -154,9 +167,9 @@ export default function Contact() {
                   <Button 
                     type="submit" 
                     className="bg-tm-blue hover:bg-tm-blue-light text-white font-bold py-3 px-6 rounded transition w-full md:w-auto"
-                    disabled={mutation.isPending}
+                    disabled={isSubmitting}
                   >
-                    {mutation.isPending ? (
+                    {isSubmitting ? (
                       <>
                         <div className="animate-spin h-4 w-4 mr-2 border-b-2 rounded-full border-white"></div>
                         Sending...
@@ -195,11 +208,11 @@ export default function Contact() {
                   <h4 className="font-medium text-lg">Club Contact</h4>
                   <p>
                     <i className="fas fa-envelope text-tm-red mr-2"></i>
-                    peachtreetoastmasters@example.com
+                    peachtreetoastmasters@gmail.com
                   </p>
                   <p>
                     <i className="fas fa-phone text-tm-red mr-2"></i>
-                    (123) 456-7890
+                    (941) 780-6951
                   </p>
                 </div>
                 

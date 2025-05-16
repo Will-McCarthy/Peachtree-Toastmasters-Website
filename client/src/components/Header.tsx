@@ -47,9 +47,9 @@ export default function Header() {
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
           <div className="flex items-center">
             <img 
-              src={toastmastersLogo} 
+              src="https://upload.wikimedia.org/wikipedia/en/0/05/Toastmasters_2011.png" 
               alt="Peachtree Toastmasters Club Logo" 
-              className="w-12 h-12 rounded-full mr-3"
+              className="w-12 h-12 mr-3"
             />
             <div>
               <h1 className="text-tm-blue font-bold text-xl md:text-2xl">Peachtree Toastmasters</h1>

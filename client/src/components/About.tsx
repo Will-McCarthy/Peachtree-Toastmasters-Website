@@ -43,11 +43,11 @@ export default function About() {
           <Card className="bg-gray-50 hover:shadow-lg transition">
             <CardContent className="p-6">
               <div className="text-tm-blue mb-4 text-center">
-                <i className="fas fa-medal text-4xl"></i>
+                <i className="fas fa-users text-4xl"></i>
               </div>
-              <h3 className="font-bold text-xl mb-3 text-center">Active Club</h3>
+              <h3 className="font-bold text-xl mb-3 text-center">Community</h3>
               <p className="text-gray-600">
-                Join our vibrant and active community that meets weekly to practice, learn, and grow together.
+                Join our diverse and inclusive community with members from various backgrounds, cultures, and professions who come together to learn and grow.
               </p>
             </CardContent>
           </Card>

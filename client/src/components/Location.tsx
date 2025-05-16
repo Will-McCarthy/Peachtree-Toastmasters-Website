@@ -49,7 +49,7 @@ export default function Location() {
           
           <div className="rounded-lg shadow-md overflow-hidden h-80 md:h-auto">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3314.4320751964915!2d-84.3831208!3d33.825293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f505f7c640124d%3A0xa528aad8c389ef0a!2sCathedral%20of%20St.%20Philip!5e0!3m2!1sen!2sus!4v1652881576247!5m2!1sen!2sus" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3314.4320751964915!2d-84.3831208!3d33.825293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f505f7c640124d%3A0xa528aad8c389ef0a!2sCathedral%20of%20St.%20Philip!5e0!3m2!1sen!2sus!4v1652881576247!5m2!1sen!2sus&z=17&markers=color:red%7Clabel:C%7C33.825293,-84.3831208" 
               width="100%" 
               height="100%" 
               style={{ border: 0 }} 
@@ -65,7 +65,7 @@ export default function Location() {
             <div className="flex flex-col md:flex-row items-center">
               <div className="md:w-1/3 mb-6 md:mb-0">
                 <img 
-                  src="https://images.unsplash.com/photo-1537202108838-e7072bad1927?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" 
+                  src="https://www.agoatlanta.org/images/gallery/exterior_77673.jpg" 
                   alt="Cathedral of St. Philip" 
                   className="rounded-lg shadow-md w-full h-auto"
                 />
@@ -74,22 +74,9 @@ export default function Location() {
                 <h3 className="font-bold text-xl mb-3">About the Venue</h3>
                 <p className="text-gray-700 mb-4">
                   The Cathedral of St. Philip provides a peaceful and professional environment for our Toastmasters meetings. 
-                  The facility offers comfortable seating, good acoustics, and all the amenities needed for productive meetings.
+                  We meet in the basement of the church. When you arrive, please reach out to the security guard or a member 
+                  walking into the club for help finding the room we meet in.
                 </p>
-                <div className="flex flex-wrap gap-4">
-                  <div className="flex items-center">
-                    <i className="fas fa-parking text-tm-blue mr-2"></i>
-                    <span>Free Parking</span>
-                  </div>
-                  <div className="flex items-center">
-                    <i className="fas fa-wifi text-tm-blue mr-2"></i>
-                    <span>WiFi Available</span>
-                  </div>
-                  <div className="flex items-center">
-                    <i className="fas fa-wheelchair text-tm-blue mr-2"></i>
-                    <span>Accessible Facility</span>
-                  </div>
-                </div>
               </div>
             </div>
           </CardContent>
